@@ -1,17 +1,13 @@
 package ch.fhnw.acrm.data.domain;
 
 import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "orders")
-public class Order {
+//@Table(name = "orders")
+public class Orders {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private Long oid;
@@ -19,13 +15,14 @@ public class Order {
     private int pamount;
 
 
-    public Order(Long oid, String oname, int pamount) {
+    public Orders(Long id, Long oid, String oname, int pamount) {
+        this.id = id;
         this.oid = oid;
         this.oname = oname;
         this.pamount = pamount;
     }
 
-    public Order() {
+    public Orders() {
     }
 
     public Long getId() {
