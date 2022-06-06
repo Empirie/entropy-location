@@ -94,4 +94,20 @@ function getCustomerJSON(id, name, email, mobile) {
         "email": email,
         "mobile": mobile
     });
+
+
+    function getProduct(callback) {
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: serviceEndpointURL + "/api/customer",
+            success: function (data) {
+                callback(data);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR, textStatus, errorThrown);
+            }
+        });
+    }
+
 }
